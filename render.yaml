@@ -1,0 +1,22 @@
+# Build settings
+build:
+  # Build command for Python dependencies
+  buildCommand: cd backend && pip install -r requirements.txt
+  # Publish directory (not needed for Python backends)
+  publishDirectory: backend
+
+# Web service configuration
+services:
+  - type: web
+    name: ml-finals-backend
+    env: python
+    plan: free
+    buildCommand: cd backend && pip install -r requirements.txt
+    startCommand: cd backend && gunicorn app:app
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: PORT
+        generateValue: true
+      - key: CORS_ORIGINS
+        value: http://localhost:5173,https://your-frontend-app.vercel.app
