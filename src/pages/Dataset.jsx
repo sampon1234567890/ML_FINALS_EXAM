@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from 'react'
 
-const API_BASE_URL = 'http://localhost:5000/api';
+// Use environment variable for API URL, fallback to localhost for development
+const API_BASE_URL = import.meta.env.VITE_API_URL 
+  ? `${import.meta.env.VITE_API_URL}/api`
+  : 'http://localhost:5000/api';
 
 export default function Dataset(){
   const [datasetInfo, setDatasetInfo] = useState(null);
