@@ -4,7 +4,7 @@ import ValidationErrorModal from '../../components/ValidationErrorModal';
 
 // Tree Node Component
 const TreeNode = ({ node, x, y, level }) => {
-  const nodeWidth = 160;
+  const nodeWidth = 140; // Reduced from 160 to prevent overlap
   const nodeHeight = 60;
   const isLeaf = !node.left && !node.right;
   
@@ -123,7 +123,7 @@ const DecisionTreeDiagram = ({ highlightPath = [] }) => {
   };
 
   const levelHeight = 180; // Increased for more vertical spacing
-  const baseWidth = 350; // Increased for more horizontal spacing
+  const baseWidth = 420; // Increased significantly to spread bottom nodes
 
   const renderTree = (node, x, y, level, width) => {
     if (!node) return null;
@@ -170,8 +170,8 @@ const DecisionTreeDiagram = ({ highlightPath = [] }) => {
 
   return (
     <div className="w-full overflow-x-auto bg-gradient-to-br from-violet-50 to-purple-50 rounded-lg p-8">
-      <svg width="1400" height="750" className="mx-auto">
-        {renderTree(treeData, 700, 40, 0, baseWidth)}
+      <svg width="1600" height="800" className="mx-auto">
+        {renderTree(treeData, 800, 40, 0, baseWidth)}
       </svg>
     </div>
   );
