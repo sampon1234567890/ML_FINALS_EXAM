@@ -249,26 +249,6 @@ export default function Dataset(){
         </div>
       )}
 
-      {/* Header */}
-      <div className="flex items-center justify-between mb-6">
-        <div>
-          <h1 className="text-3xl font-bold">Student Performance Dataset</h1>
-          <p className="text-text-secondary">
-            {datasetInfo ? `${datasetInfo.total_records} student records from Portuguese secondary schools` : 'Loading dataset information...'}
-          </p>
-        </div>
-        <div className="flex gap-3">
-          <button 
-            onClick={downloadCSV}
-            disabled={!sampleData || sampleData.length === 0}
-            className="rounded-full bg-green-600 text-white px-4 py-2 font-bold transition transform hover:scale-105 hover:shadow-md disabled:bg-gray-400 disabled:cursor-not-allowed flex items-center gap-2"
-          >
-            <span className="material-symbols-outlined text-sm">download</span>
-            Download CSV
-          </button>
-        </div>
-      </div>
-
       {/* Statistics Cards */}
       {datasetInfo && (
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
