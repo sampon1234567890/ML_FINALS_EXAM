@@ -207,23 +207,33 @@ export default function LinearRegression(){
   };
 
   return (
-    <div className="container mx-auto px-6 py-8 max-w-[1600px] page-enter">
+    <div className="page-enter">
+      {/* Header Section with Gradient */}
+      <div className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-12 relative overflow-hidden">
+        {/* Background Shapes */}
+        <div className="absolute top-10 left-10 w-72 h-72 bg-blue-300/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-10 right-10 w-80 h-80 bg-purple-300/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+        
+        <div className="container mx-auto px-6 max-w-[1600px] relative z-10">
+          <div className="mb-4">
+            <p className="text-base font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Regression Analysis</p>
+            <h1 className="mt-2 text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Linear Regression Model</h1>
+            <p className="mt-4 text-lg text-gray-700">
+              Predicts student's final grades based on current performance metrics and study patterns
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="container mx-auto px-6 py-8 max-w-[1600px]">
       {/* Grading System Info Banner */}
       <GradingSystemInfo />
 
       {/* Validation Error Modal */}
-      <ValidationErrorModal show={showErrorModal} onClose={() => setShowErrorModal(false)} />
-
-      {/* Header Section */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Linear Regression Model</h1>
-        <p className="mt-2 text-lg text-gray-600">
-          Predicts student's final grades based on current performance metrics and study patterns
-        </p>
-      </div>
+      <ValidationErrorModal show={showErrorModal} onClose={() => setShowErrorModal(false)}
       {/* Key Features Section */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        <div className="bg-blue-50 p-6 rounded-xl shadow-sm">
+        <div className="bg-gradient-to-br from-blue-50 to-indigo-100 p-6 rounded-xl shadow-lg border border-blue-200 hover:shadow-xl transition-shadow">
           <h3 className="text-lg font-semibold text-blue-900 mb-3">Input Features</h3>
           <ul className="space-y-2 text-blue-800">
             <li className="flex items-center">
@@ -241,7 +251,7 @@ export default function LinearRegression(){
           </ul>
         </div>
         
-        <div className="bg-green-50 p-6 rounded-xl shadow-sm">
+        <div className="bg-gradient-to-br from-green-50 to-emerald-100 p-6 rounded-xl shadow-lg border border-green-200 hover:shadow-xl transition-shadow">
           <h3 className="text-lg font-semibold text-green-900 mb-3">Predictions</h3>
           <ul className="space-y-2 text-green-800">
             <li className="flex items-center">
@@ -259,7 +269,7 @@ export default function LinearRegression(){
           </ul>
         </div>
 
-        <div className="bg-purple-50 p-6 rounded-xl shadow-sm">
+        <div className="bg-gradient-to-br from-purple-50 to-pink-100 p-6 rounded-xl shadow-lg border border-purple-200 hover:shadow-xl transition-shadow">
           <h3 className="text-lg font-semibold text-purple-900 mb-3">Model Stats</h3>
           <ul className="space-y-2 text-purple-800">
             <li className="flex items-center">
@@ -471,6 +481,7 @@ export default function LinearRegression(){
           </div>
         </div>
       )}
+      </div>
     </div>
   )
 }
