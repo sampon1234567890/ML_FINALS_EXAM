@@ -104,16 +104,45 @@ export default function Dataset(){
   };
 
   return (
-    <div className="container mx-auto px-6 py-12 max-w-[1600px] page-enter">
+    <div className="page-enter">
+      {/* Header Section with Gradient */}
+      <div className="bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 py-16 relative overflow-hidden">
+        {/* Background Shapes */}
+        <div className="absolute top-10 right-10 w-96 h-96 bg-purple-300/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-10 left-10 w-80 h-80 bg-blue-300/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+        
+        <div className="container mx-auto px-6 max-w-[1600px] relative z-10">
+          <div className="flex items-center justify-between">
+            <div>
+              <p className="text-base font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Dataset Explorer</p>
+              <h1 className="mt-2 text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Student Performance Dataset</h1>
+              <p className="mt-4 text-lg text-gray-700">
+                {datasetInfo ? `${datasetInfo.total_records} student records from Portuguese secondary schools` : 'Loading dataset information...'}
+              </p>
+            </div>
+            <button 
+              onClick={downloadCSV}
+              disabled={!sampleData || sampleData.length === 0}
+              className="rounded-full bg-gradient-to-r from-green-600 to-emerald-600 text-white px-6 py-3 font-bold transition transform hover:scale-105 hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+            >
+              <span className="material-symbols-outlined text-sm">download</span>
+              Download CSV
+            </button>
+          </div>
+        </div>
+      </div>
+
       {/* Floating Dataset Context Button */}
       <button
         onClick={() => setShowModal(true)}
-        className="fixed bottom-6 right-6 z-50 bg-blue-600 hover:bg-blue-700 text-white rounded-full p-4 shadow-lg transition-all duration-300 hover:scale-110 active:scale-95 flex items-center gap-2 pulse-slow"
+        className="fixed bottom-6 right-6 z-50 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white rounded-full p-4 shadow-lg transition-all duration-300 hover:scale-110 active:scale-95 flex items-center gap-2 pulse-slow"
         title="Show Dataset Context"
       >
         <span className="text-2xl">📊</span>
         <span className="font-semibold hidden md:inline">Dataset Info</span>
       </button>
+
+      <div className="container mx-auto px-6 py-12 max-w-[1600px]">
 
       {/* Dataset Context Modal */}
       {showModal && (
@@ -242,24 +271,24 @@ export default function Dataset(){
 
       {/* Statistics Cards */}
       {datasetInfo && (
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
-          <div className="bg-white rounded-lg shadow p-4 border border-gray-200">
-            <p className="text-sm text-gray-600">Total Students</p>
-            <p className="text-2xl font-bold text-blue-600">{datasetInfo.total_records}</p>
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+          <div className="group p-6 rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-100 hover:from-blue-100 hover:to-indigo-200 shadow-lg hover:shadow-xl transition-all duration-300 border border-blue-200">
+            <p className="text-sm font-semibold text-blue-700 mb-2">Total Students</p>
+            <p className="text-3xl font-bold text-blue-600">{datasetInfo.total_records}</p>
           </div>
-          <div className="bg-white rounded-lg shadow p-4 border border-gray-200">
-            <p className="text-sm text-gray-600">Total Features</p>
-            <p className="text-2xl font-bold text-green-600">{datasetInfo.num_features}</p>
+          <div className="group p-6 rounded-2xl bg-gradient-to-br from-green-50 to-emerald-100 hover:from-green-100 hover:to-emerald-200 shadow-lg hover:shadow-xl transition-all duration-300 border border-green-200">
+            <p className="text-sm font-semibold text-green-700 mb-2">Total Features</p>
+            <p className="text-3xl font-bold text-green-600">{datasetInfo.num_features}</p>
           </div>
-          <div className="bg-white rounded-lg shadow p-4 border border-gray-200">
-            <p className="text-sm text-gray-600">Average Grade (G3)</p>
-            <p className="text-2xl font-bold text-purple-600">
+          <div className="group p-6 rounded-2xl bg-gradient-to-br from-purple-50 to-pink-100 hover:from-purple-100 hover:to-pink-200 shadow-lg hover:shadow-xl transition-all duration-300 border border-purple-200">
+            <p className="text-sm font-semibold text-purple-700 mb-2">Average Grade (G3)</p>
+            <p className="text-3xl font-bold text-purple-600">
               {datasetInfo.statistics?.G3?.mean ? datasetInfo.statistics.G3.mean.toFixed(2) : 'N/A'}/20
             </p>
           </div>
-          <div className="bg-white rounded-lg shadow p-4 border border-gray-200">
-            <p className="text-sm text-gray-600">Grade Range</p>
-            <p className="text-2xl font-bold text-orange-600">0-20</p>
+          <div className="group p-6 rounded-2xl bg-gradient-to-br from-orange-50 to-amber-100 hover:from-orange-100 hover:to-amber-200 shadow-lg hover:shadow-xl transition-all duration-300 border border-orange-200">
+            <p className="text-sm font-semibold text-orange-700 mb-2">Grade Range</p>
+            <p className="text-3xl font-bold text-orange-600">0-20</p>
           </div>
         </div>
       )}
@@ -363,6 +392,7 @@ export default function Dataset(){
             </div>
           </>
         )}
+      </div>
       </div>
     </div>
   )
