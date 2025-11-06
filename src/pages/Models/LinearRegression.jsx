@@ -230,7 +230,8 @@ export default function LinearRegression(){
       <GradingSystemInfo />
 
       {/* Validation Error Modal */}
-      <ValidationErrorModal show={showErrorModal} onClose={() => setShowErrorModal(false)}
+      <ValidationErrorModal show={showErrorModal} onClose={() => setShowErrorModal(false)} />
+
       {/* Key Features Section */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
         <div className="bg-gradient-to-br from-blue-50 to-indigo-100 p-6 rounded-xl shadow-lg border border-blue-200 hover:shadow-xl transition-shadow">
@@ -417,13 +418,16 @@ export default function LinearRegression(){
           </button>
           <button
             onClick={() => {
-              setFormData({
-                age: '', Medu: '', Fedu: '', traveltime: '', studytime: '',
-                failures: '', famrel: '', freetime: '', goout: '', Dalc: '',
-                Walc: '', health: '', absences: '', G1: '', G2: ''
-              });
+              setAge("");
+              setStudytime("");
+              setAbsences("");
+              setG1("");
+              setG2("");
+              setFailures("");
+              setMedu("");
+              setFedu("");
               setPrediction(null);
-              setError('');
+              setError(null);
             }}
             type="button"
             className="w-full bg-gray-500 text-white py-3 rounded-lg font-medium transition-all duration-300 transform hover:scale-105 hover:bg-gray-600 active:scale-95 focus:ring-2 focus:ring-gray-400 focus:ring-offset-2 relative overflow-hidden group"
