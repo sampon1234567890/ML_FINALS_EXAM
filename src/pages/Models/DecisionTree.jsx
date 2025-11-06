@@ -122,8 +122,8 @@ const DecisionTreeDiagram = ({ highlightPath = [] }) => {
     }
   };
 
-  const levelHeight = 120;
-  const baseWidth = 200;
+  const levelHeight = 150; // Increased from 120 for better vertical spacing
+  const baseWidth = 280; // Increased from 200 for better horizontal spacing
 
   const renderTree = (node, x, y, level, width) => {
     if (!node) return null;
@@ -169,9 +169,9 @@ const DecisionTreeDiagram = ({ highlightPath = [] }) => {
   };
 
   return (
-    <div className="w-full overflow-x-auto bg-gradient-to-br from-violet-50 to-purple-50 rounded-lg p-4">
-      <svg width="900" height="500" className="mx-auto">
-        {renderTree(treeData, 450, 20, 0, baseWidth)}
+    <div className="w-full overflow-x-auto bg-gradient-to-br from-violet-50 to-purple-50 rounded-lg p-6">
+      <svg width="1200" height="650" className="mx-auto">
+        {renderTree(treeData, 600, 30, 0, baseWidth)}
       </svg>
     </div>
   );
