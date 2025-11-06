@@ -212,24 +212,34 @@ export default function ANN(){
   };
 
   return (
-    <div className="container mx-auto px-6 py-8 max-w-[1600px] page-enter">
+    <div className="page-enter">
+      {/* Header Section with Gradient */}
+      <div className="bg-gradient-to-br from-sky-50 via-cyan-50 to-blue-50 py-12 relative overflow-hidden">
+        {/* Background Shapes */}
+        <div className="absolute top-10 left-10 w-72 h-72 bg-sky-300/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-10 right-10 w-80 h-80 bg-cyan-300/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+        
+        <div className="container mx-auto px-6 max-w-[1600px] relative z-10">
+          <div className="mb-4">
+            <p className="text-base font-semibold bg-gradient-to-r from-sky-600 to-cyan-600 bg-clip-text text-transparent">Deep Learning</p>
+            <h1 className="mt-2 text-4xl font-bold bg-gradient-to-r from-sky-600 to-cyan-600 bg-clip-text text-transparent">Artificial Neural Network</h1>
+            <p className="mt-4 text-lg text-gray-700">
+              Deep learning system for long-term academic performance forecasting
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="container mx-auto px-6 py-8 max-w-[1600px]">
       {/* Floating Help Button */}
       <GradingSystemInfo />
 
       {/* Validation Error Modal */}
       <ValidationErrorModal show={showErrorModal} onClose={() => setShowErrorModal(false)} />
 
-      {/* Header Section */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Artificial Neural Network</h1>
-        <p className="mt-2 text-lg text-gray-600">
-          Deep learning system for long-term academic performance forecasting
-        </p>
-      </div>
-
       {/* Feature Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        <div className="bg-sky-50 p-6 rounded-xl shadow-sm">
+        <div className="bg-gradient-to-br from-sky-50 to-cyan-100 p-6 rounded-xl shadow-lg border border-sky-200 hover:shadow-xl transition-shadow">
           <h3 className="text-lg font-semibold text-sky-900 mb-3">Network Features</h3>
           <ul className="space-y-2 text-sky-800">
             <li className="flex items-center">
@@ -441,6 +451,7 @@ export default function ANN(){
           </div>
         </div>
       )}
+      </div>
     </div>
   )
 }

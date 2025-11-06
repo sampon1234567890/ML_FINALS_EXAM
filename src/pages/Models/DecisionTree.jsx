@@ -257,24 +257,34 @@ export default function DecisionTree(){
   };
 
   return (
-    <div className="container mx-auto px-6 py-8 max-w-[1600px] page-enter">
+    <div className="page-enter">
+      {/* Header Section with Gradient */}
+      <div className="bg-gradient-to-br from-violet-50 via-purple-50 to-fuchsia-50 py-12 relative overflow-hidden">
+        {/* Background Shapes */}
+        <div className="absolute top-10 left-10 w-72 h-72 bg-violet-300/20 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-10 right-10 w-80 h-80 bg-fuchsia-300/20 rounded-full blur-3xl animate-pulse" style={{animationDelay: '1s'}}></div>
+        
+        <div className="container mx-auto px-6 max-w-[1600px] relative z-10">
+          <div className="mb-4">
+            <p className="text-base font-semibold bg-gradient-to-r from-violet-600 to-fuchsia-600 bg-clip-text text-transparent">Rule-Based Classification</p>
+            <h1 className="mt-2 text-4xl font-bold bg-gradient-to-r from-violet-600 to-fuchsia-600 bg-clip-text text-transparent">Decision Tree Analysis</h1>
+            <p className="mt-4 text-lg text-gray-700">
+              Transparent rule-based system for understanding student performance factors
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div className="container mx-auto px-6 py-8 max-w-[1600px]">
       {/* Floating Help Button */}
       <GradingSystemInfo />
 
       {/* Validation Error Modal */}
       <ValidationErrorModal show={showErrorModal} onClose={() => setShowErrorModal(false)} />
 
-      {/* Header Section */}
-      <div className="mb-8">
-        <h1 className="text-3xl font-bold text-gray-900">Decision Tree Analysis</h1>
-        <p className="mt-2 text-lg text-gray-600">
-          Transparent rule-based system for understanding student performance factors
-        </p>
-      </div>
-
       {/* Feature Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        <div className="bg-violet-50 p-6 rounded-xl shadow-sm">
+        <div className="bg-gradient-to-br from-violet-50 to-purple-100 p-6 rounded-xl shadow-lg border border-violet-200 hover:shadow-xl transition-shadow">
           <h3 className="text-lg font-semibold text-violet-900 mb-3">Decision Factors</h3>
           <ul className="space-y-2 text-violet-800">
             <li className="flex items-center">
@@ -462,6 +472,7 @@ export default function DecisionTree(){
           </div>
         </div>
       )}
+      </div>
     </div>
   )
 }
